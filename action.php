@@ -8,10 +8,10 @@ $_SESSION['post-data'] = $_POST;
 //$lastname = $_SESSION['post-data']['lastname'];
 //$email = $_SESSION['post-data']['email'];
 
-$servername = "127.0.0.1";
+$servername = "localhost:8889";
 $username = "root";
-$password = "";
-$dbname = "Test_DB";
+$password = "root";
+$dbname = "TestDB2";
 
 
 // define variables and set to empty values
@@ -52,11 +52,14 @@ function test_input($data) {
 
 
 // Create connection
+
+//$conn = mysql_connect("localhost", "root");
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+else echo "Conncected";
 
 $sql = "INSERT INTO Test_Table (User_Id,First_Name, Last_Name, Email)
 VALUES ('DEFAULT', '$firstname', '$lastname', '$email')";
