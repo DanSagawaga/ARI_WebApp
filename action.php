@@ -15,30 +15,28 @@ $dbname = "TestDB2";
 
 
 // define variables and set to empty values
-$firstname = $lastname = $email =  "";
-
-
+$firstNameErr = $emailErr = $lastNameErr = "";
+$firstName = $lastName = $emailErr  = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["firstname"])) {
-    $firstname = "First name is required";
+    $firstNameErr = "First Name is required";
   } else {
-    $firstname = test_input($_POST["firstname"]);
+    $firstName = test_input($_POST["firstname"]);
   }
 
   if (empty($_POST["lastname"])) {
-    $lastname = "last name is required";
+    $lastNameErr = "Email is required";
   } else {
-    $lastname = test_input($_POST["lastname"]);
+    $lastName = test_input($_POST["lastname"]);
   }
 
   if (empty($_POST["email"])) {
-    $email = "Email is required";
+    $emailErr = "";
   } else {
     $email = test_input($_POST["email"]);
   }
 }
-
 
 
 function test_input($data) {
@@ -59,7 +57,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-else echo "Conncected";
+
 
 $sql = "INSERT INTO Test_Table (User_Id,First_Name, Last_Name, Email)
 VALUES ('DEFAULT', '$firstname', '$lastname', '$email')";
