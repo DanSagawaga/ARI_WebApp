@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="style.css">
 <style>
 .error {color: #FF0000;}
 </style>
@@ -8,6 +9,7 @@
 <body>
 
 <?php
+ob_start();
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $emailErr = $genderErr = $websiteErr = "";
 $firstname =  $lastname = $email = $gender = $comment = $website = "";
@@ -74,11 +76,12 @@ function test_input($data) {
    return $data;
 }
 ?>
+<center>
 
 <h1 align = "center"> This Page Is Awesome </h1>
 <p><span class="error">* required field.</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" align = "center">
-   First Name: <input type="text" name="firstname" value="<?php echo $firstname;?>">
+   <p> First Name: <input type="text" name="firstname" value="<?php echo $firstname;?>">
    <span class="error">* <?php echo $firstnameErr;?></span>
    <br><br>
    Last Name: <input type="text" name="lastname" value="<?php echo $lastname;?>">
@@ -98,14 +101,13 @@ function test_input($data) {
    <br><br>
    <input type="submit" name="submit" value="Submit">
 </form>
+<img border = "1" src = "dogTyping500x274.gif">
+</center>
 
-
-<img border = "4" src = "dogTyping500x274.gif">
 <?php
 
 $isValid = true;
 
-echo "<h2>Your Input:</h2>";
 if($firstnameErr != ""){
   $isValid = false;
 }
@@ -122,12 +124,13 @@ if($genderErr != ""){
   $isValid = false;
 }
 
-if($isValid){
-  echo "Form Validated!";
-  echo "Form Validated2!";
+if($isValid and isset($_POST['submit'])){
+
+echo '<script type="text/javascript">
+           window.location = "http://localhost:8888/validated.html"
+      </script>';  
 
 }
-echo "End of File";
 
 ?>
 
