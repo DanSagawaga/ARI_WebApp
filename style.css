@@ -80,3 +80,16 @@ margin-bottom:20px
 float:right;
 margin-top:85px
 }
+
+#wrap {
+   width:600px;
+   margin:0 auto;
+}
+#left_col {
+   float:left;
+   width:2em;
+}
+#right_col {
+   float:right;
+   width:38.5em;
+}

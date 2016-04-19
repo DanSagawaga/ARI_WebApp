@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -126,8 +126,9 @@ if($genderErr != ""){
 
 if($isValid and isset($_POST['submit'])){
 
+//include 'action.php';
 echo '<script type="text/javascript">
-           window.location = "http://localhost:8888/validated.html"
+           window.location = "http://localhost:8888/photoID.html"
       </script>';  
 
 }
