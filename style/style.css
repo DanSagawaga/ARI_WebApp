@@ -90,13 +90,16 @@ ol li
 
 #header
 { background: #025587;
-  height: 240px;}
+  height: 240px;
+
+}
 
 #logo
 { width: 825px;
   position: relative;
   height: 168px;
-  background: #025587 url(logo.png) no-repeat;}
+  background: #025587 url(logo.png) no-repeat;
+}
 
 #logo #logo_text 
 { position: absolute; 

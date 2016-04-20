@@ -158,6 +158,7 @@ echo '<script type="text/javascript">
 
 
 
+<img src="ARI_Logo.png" >
 
 
 
