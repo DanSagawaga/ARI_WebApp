@@ -1,18 +1,40 @@
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
-<style>
-.error {color: #FF0000;}
-</style>
+  <title>ARI Registration Form</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
 </head>
+
 <body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ARI<span class="logo_colour"> Registration</span></a></h1>
+          <h2>American River International</h2>
+
+        </div>
+      </div>
+      
+    </div>
+    <div id="site_content">
+      
+      <div id="content">
+
+
+
+
 
 <?php
 ob_start();
 // define variables and set to empty values
-$firstnameErr = $lastnameErr = $emailErr = $genderErr = $websiteErr = "";
-$firstname =  $lastname = $email = $gender = $comment = $website = "";
+$firstnameErr = $lastnameErr = $emailErr = $genderErr = $addressErr = "";
+$firstname =  $lastname = $email = $gender = $comment = $address = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -46,13 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      }
    }
     
-   if (empty($_POST["website"])) {
-     $website = "";
+   if (empty($_POST["address"])) {
+     $address = "";
    } else {
-     $website = test_input($_POST["website"]);
+     $website = test_input($_POST["address"]);
      // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-     if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-       $websiteErr = "Invalid URL";
+     if (!preg_match("/^[a-zA-Z ]*$/",$address)) {
+       $lastnameErr = "Only letters and white space allowed";
      }
    }
 
@@ -78,7 +100,7 @@ function test_input($data) {
 ?>
 <center>
 
-<h1 align = "center"> This Page Is Awesome </h1>
+<h1 color = "#025587"> Welcome, Please Enter All required fields </h1>
 <p><span class="error">* required field.</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" align = "center">
    <p> First Name: <input type="text" name="firstname" value="<?php echo $firstname;?>">
@@ -90,8 +112,8 @@ function test_input($data) {
    E-mail: <input type="text" name="email" value="<?php echo $email;?>">
    <span class="error">* <?php echo $emailErr;?></span>
    <br><br>
-   Website: <input type="text" name="website" value="<?php echo $website;?>">
-   <span class="error"><?php echo $websiteErr;?></span>
+   Address: <input type="text" name="address" value="<?php echo $address;?>">
+   <span class="error"><?php echo $addressErr;?></span>
    <br><br>
 
    Gender:
@@ -101,7 +123,6 @@ function test_input($data) {
    <br><br>
    <input type="submit" name="submit" value="Submit">
 </form>
-<img border = "1" src = "dogTyping500x274.gif">
 </center>
 
 <?php
@@ -126,7 +147,7 @@ if($genderErr != ""){
 
 if($isValid and isset($_POST['submit'])){
 
-//include 'action.php';
+include 'action.php';
 echo '<script type="text/javascript">
            window.location = "http://localhost:8888/photoID.html"
       </script>';  
@@ -135,5 +156,17 @@ echo '<script type="text/javascript">
 
 ?>
 
+
+
+
+
+
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+       &copy; <a href="http://http://www.americanriverintl.com/">2016 American River International</a>
+    </div>
+  </div>
 </body>
 </html>

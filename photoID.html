@@ -1,17 +1,35 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Photo ID</title>
+  <title>ARI Registration Picture ID</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
 </head>
+
+
 <body>
-    <br></br>
-    <br></br>
-    <br></br>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">ARI<span class="logo_colour"> Picture ID</span></a></h1>
+          <h2>American River International</h2>
+
+        </div>
+      </div>
+      
+    </div>
 <center>
+
+
+<h1> Please Look into the camera and click 'Take a photo' </h1>
 <button id="take">Take a photo</button>
-<button id="submit">Submit</button><br />                                                                 
+<button id="submit" onclick="submit_Picture()">Submit</button><br />                                                                 
+    <br></br>
 
 </center>
 
@@ -79,13 +97,13 @@
 })();
 
 
-document.getElementById('submit').onclick = function() {
-    if(is_Photo_taken== false){
-   alert("button was clicked");
-}
-}​;​
 </script>
 
+<script>
+function submit_Picture() {
+    window.location = "http://localhost:8888/validated.html"
+}
+</script>
 
 
 </body>
